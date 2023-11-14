@@ -2,5 +2,4 @@ Pandas
 Numpy
 streamlit
 plotly
-warnings
 matplotlib
