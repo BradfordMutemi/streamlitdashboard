@@ -152,3 +152,18 @@ with st.expander("Summary_Table"):
     filtered_df["month"] = filtered_df["Order Date"].dt.month_name()
     sub_category_year = pd.pivot_table(data=filtered_df, values="Sales", index=["Sub-Category"], columns="month")
     st.write(sub_category_year.style.background_gradient(cmap="Blues"))
+
+# Create a Scatter Plot
+data1 = px.scatter(filtered_df, x="Sales", y="Profit", size="Quantity")
+data1["layout"].update(title="Relationship between Sales and Profits using Scatter Plot.", 
+                    titlefont=dict(size=20), xaxis=dict(title="Sales", titlefont=dict(size=20)),
+                    yaxis=dict(title="Profit", titlefont=dict(size=20)))
+st.plotly_chart(data1, use_container_width=True)
+
+# Downloading/Viewing part of the data set
+with st.expander("View Data"):
+    st.write(filtered_df.iloc[0:500,1:20:2].style.background_gradient(cmap="Oranges"))
+
+# Downlod Original Data set
+csv = df.to_csv(index=False).encode('utf-8')
+st.download_button('Download Data', data=csv, file_name="Data.csv", mime="text/csv")
