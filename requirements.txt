@@ -1,6 +1,6 @@
-pandas
-numpy
+Pandas
+Numpy
 streamlit
 plotly
-os
 warnings
+matplotlib
