@@ -13,7 +13,7 @@ st.set_page_config(page_title='Superstore', page_icon=':bar_chart:', layout='wid
 st.title(":bar_chart: Superstore EDA")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 fl = st.file_uploader(":file_folder: Upload a file", type=(["csv", "txt", "xlsx", "xls"]))
-if fl is not None:
+if fl is None:
     filename = fl.name
     st.write(filename)
     df = pd.read_csv(filename, encoding="ISO-8859-1")
